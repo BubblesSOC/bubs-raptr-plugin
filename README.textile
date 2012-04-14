@@ -21,13 +21,13 @@ notextile. </li>
 
 p. Using Ajax and CoffeeScript I load the contents of the widget into an unordered list:
 
-h3. CoffeeScript
+h3. CoffeeScript:
 
 bc. $.get wpAjax.url, { action: 'brp-print-games' }, (html) ->
   $ ->
     $('#raptr ul').html html
     
-h3. jQuery
+h3. jQuery:
 
 bc. $.get(wpAjax.url, { action: 'brp-print-games' }, function(html) {
   $(function() {
