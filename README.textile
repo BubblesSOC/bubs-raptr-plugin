@@ -23,13 +23,15 @@ p. Using Ajax and CoffeeScript I load the contents of the widget into an unorder
 
 h3. CoffeeScript:
 
-bc. $.get wpAjax.url, { action: 'brp-print-games' }, (html) ->
+bc. $ = jQuery # if you're using WordPress' jQuery library 
+$.get wpAjax.url, { action: 'brp-print-games' }, (html) ->
   $ ->
     $('#raptr ul').html html
     
 h3. jQuery:
 
-bc. $.get(wpAjax.url, { action: 'brp-print-games' }, function(html) {
+bc. var $ = jQuery; // if you're using WordPress' jQuery library 
+$.get(wpAjax.url, { action: 'brp-print-games' }, function(html) {
   $(function() {
     $('#raptr ul').html(html);
   });
