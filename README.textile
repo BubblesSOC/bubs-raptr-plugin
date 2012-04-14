@@ -35,5 +35,10 @@ bc. $.get(wpAjax.url, { action: 'brp-print-games' }, function(html) {
   });
 });
 
+p. Note: The following hooks in the _bubs-raptr-plugin.php_ constructor link the Ajax:
+
+bc. add_action( 'wp_ajax_nopriv_brp-print-games', array($this, 'printGames') );
+add_action( 'wp_ajax_brp-print-games', array($this, 'printGames') );
+
 notextile. </li>
 </ul>
