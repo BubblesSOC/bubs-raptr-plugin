@@ -7,14 +7,19 @@ h2. Usage
 notextile. <ul>
 <li>
 
-p. Set the path to WordPress' Ajax handler using @wp_localize_script()@ ("more info":http://codex.wordpress.org/AJAX_in_Plugins)
+p. In my theme's _functions.php_ file I set the path to WordPress' Ajax handler using @wp_localize_script()@ ("more info":http://codex.wordpress.org/AJAX_in_Plugins)
 
-bc. wp_localize_script( 'rk_wordpress_js', 'wpAjax', array('url' => admin_url('admin-ajax.php')) );
+bc. function rk_scripts() {
+  ...
+  wp_localize_script( 'rk_wordpress_js', 'wpAjax', array('url' => admin_url('admin-ajax.php')) );
+  ...
+}
+add_action( 'wp_enqueue_scripts', 'rk_scripts' );
     
 notextile. </li>
 <li>
 
-p. Load the widget's contents
+p. Using Ajax and CoffeeScript I load the contents of the widget into an unordered list:
 
 h3. CoffeeScript
 
