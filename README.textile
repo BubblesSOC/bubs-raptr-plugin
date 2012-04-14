@@ -1,3 +1,34 @@
 h1. Bubs' Raptr Plugin
 
 Parses the content of the "Games I'm Playing" "Raptr widget":http://raptr.com/dashboard/widgets for display on my WordPress blog. Uses the "PHP Simple HTML DOM Parser":http://simplehtmldom.sourceforge.net/.
+
+h2. Usage
+
+notextile. <ul>
+<li>
+
+p. Set the path to WordPress' Ajax handler using @wp_localize_script()@ ("more info":http://codex.wordpress.org/AJAX_in_Plugins)
+
+bc. wp_localize_script( 'rk_wordpress_js', 'wpAjax', array('url' => admin_url('admin-ajax.php')) );
+    
+notextile. </li>
+<li>
+
+p. Load the widget's contents
+
+h3. CoffeeScript
+
+bc. $.get wpAjax.url, { action: 'brp-print-games' }, (html) ->
+  $ ->
+    $('#raptr ul').html html
+    
+h3. jQuery
+
+bc. $.get(wpAjax.url, { action: 'brp-print-games' }, function(html) {
+  $(function() {
+    $('#raptr ul').html(html);
+  });
+});
+
+notextile. </li>
+</ul>
