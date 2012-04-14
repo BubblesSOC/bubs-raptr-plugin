@@ -1,0 +1,15 @@
+#message.raptr {
+  display: none;
+}
+
+#brp-refresh-cache-spinner,
+.brp-cache-images-spinner {
+  padding-left: 3px;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+#brp-cache-table .col-center {
+  width: 15%;
+  vertical-align: middle;
+}
