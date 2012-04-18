@@ -1,6 +1,6 @@
 h1. Bubs' Raptr Plugin
 
-Parses the content of the "Games I'm Playing" "Raptr widget":http://raptr.com/dashboard/widgets for display on my WordPress blog. Uses the "PHP Simple HTML DOM Parser":http://simplehtmldom.sourceforge.net/.
+Parses the content of the ""Games I'm Playing":http://raptr.com/badges/playing/bubblessoc" "Raptr widget":http://raptr.com/dashboard/widgets for display on my WordPress blog. Uses the "PHP Simple HTML DOM Parser":http://simplehtmldom.sourceforge.net/.
 
 h2. Usage
 
