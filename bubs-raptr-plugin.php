@@ -9,6 +9,7 @@ Author URI: http://bubblessoc.net
 */
 
 require_once('includes/simple_html_dom.php');
+require_once('includes/widget.php');
 define('BRP_PLUGIN_SLUG', "bubs-raptr-plugin");
 
 class BubsRaptrPlugin {
@@ -18,6 +19,7 @@ class BubsRaptrPlugin {
   function __construct() {
     $this->_cache = get_option( 'brp_cache', array( 'timestamp' => 0, 'items' => array() ) );
     
+    add_action( 'widgets_init', array($this, 'initWidget') );
     add_action( 'admin_menu', array($this, 'adminMenu') );
     add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array($this, 'actionLinks') );
     add_action( 'wp_ajax_brp-refresh-cache', array($this, 'refreshCache') );
@@ -31,6 +33,10 @@ class BubsRaptrPlugin {
     $this->_cache['timestamp'] = time();
     $this->_cache['items'] = $items;
     update_option( 'brp_cache', $this->_cache );
+  }
+  
+  function initWidget() {
+    register_widget( 'BRP_Widget' );
   }
 
   function enqueueAdminJS() {
@@ -53,7 +59,7 @@ class BubsRaptrPlugin {
   }
   
   function optionsPage() {
-    if (!current_user_can('manage_options'))  {
+    if ( !current_user_can('manage_options') )  {
   		wp_die( __('You do not have sufficient permissions to access this page.') );
   	}
 ?>
